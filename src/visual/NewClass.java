@@ -10,5 +10,5 @@ package visual;
  * @author bernardo
  */
 public class NewClass {
-    
+    sadgagsadsfg
 }
