@@ -102,7 +102,11 @@ public class ActualizarThread extends Thread {
                     }else if(estado.getEstado().contains("MRIO.SALUD") && fsalud.before(fcont)){
                         estado.setPagina("Salud");
                         estado.setEstado("MINISTERIO DE SALUD DE LA PROVINCIA");
-                    }else if(estado.getEstado().contains("SEGURIDAD") && fsalud.before(fcont)){
+                    }else if(estado.getEstado().contains("MRIO.SALUD") && !fsalud.before(fcont)){
+                        estado.setPagina("Salud");
+                        estado.setEstado("CONTADURIA GRAL PROVINCIA");
+                    }
+                    else if(estado.getEstado().contains("SEGURIDAD") && fsalud.before(fcont)){
                         estado.setPagina("Salud");
                         estado.setEstado("SEGURIDAD");
                     } else 
