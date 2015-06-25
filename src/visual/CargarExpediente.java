@@ -168,20 +168,22 @@ public CargarExpediente(AdministrarExpedientes pare) {
     }//GEN-LAST:event_formWindowClosing
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            if (con.addExpediente(new Expediente(Caratula.getText(), Numero.getText(), Ano.getText(), Alcance.getText())))
-                JOptionPane.showMessageDialog(null, "Se agrego el expediente correctamente");
-            else
-                JOptionPane.showMessageDialog(null, "El expediente ya existe");
-            Caratula.setText("");
-            Numero.setText("");
-            Ano.setText("");
-            Alcance.setText("");
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Error al conectarse con la Base de Datos. Intente establecer la conexion o contacte con el administrador");
-            System.out.println(ex);
-            System.exit(0);
-        }
+        if (!Caratula.getText().equals("")&&!Numero.getText().equals("")&&!Ano.getText().equals("")&&!Alcance.getText().equals("")){
+            try {
+                if (con.addExpediente(new Expediente(Caratula.getText(), Numero.getText(), Ano.getText(), Alcance.getText())))
+                    JOptionPane.showMessageDialog(null, "Se agrego el expediente correctamente");
+                else
+                    JOptionPane.showMessageDialog(null, "El expediente ya existe");
+                Caratula.setText("");
+                Numero.setText("");
+                Ano.setText("");
+                Alcance.setText("");
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Error al conectarse con la Base de Datos. Intente establecer la conexion o contacte con el administrador");
+                System.out.println(ex);
+                System.exit(0);
+            }
+        }else JOptionPane.showMessageDialog(null, "Debe ingresar todos los campos");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
